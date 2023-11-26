@@ -1,18 +1,21 @@
 ﻿using System.Security.AccessControl;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalesWebMVC.Models
 {
     public class Department
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 
         public Department() { }
 
-        public Department(int id, string name)
+        public Department(string name)
         {
-            Id = id;
             Name = name;
         }
 

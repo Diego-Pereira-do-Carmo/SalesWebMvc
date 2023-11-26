@@ -1,9 +1,13 @@
 ﻿using SalesWebMVC.Models.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalesWebMVC.Models
 {
     public class SalesRecord
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public double Amount { get; set; }
@@ -12,9 +16,8 @@ namespace SalesWebMVC.Models
 
         public SalesRecord() { }
 
-        public SalesRecord(int id, DateTime date, double amount, SaleStatus status, Seller seller)
+        public SalesRecord(DateTime date, double amount, SaleStatus status, Seller seller)
         {
-            Id = id;
             Date = date;
             Amount = amount;
             Status = status;
