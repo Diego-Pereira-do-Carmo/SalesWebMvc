@@ -1,10 +1,7 @@
-﻿using System;
-using System.Globalization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Localization;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SalesWebMVC.Models;
 using SalesWebMVC.Data;
+using SalesWebMVC.Sevices;
 
 namespace SalesWebMVC
 {
@@ -27,6 +24,7 @@ namespace SalesWebMVC
                     options.UseSqlServer(Configuration.GetConnectionString("SalesWebMVCContext") ?? throw new InvalidOperationException("Connection string 'SalesWebMVCContext' not found.")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
