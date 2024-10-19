@@ -1,49 +1,44 @@
-﻿
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SalesWebMvc.Test.Fixtures;
-using SalesWebMvc.Test.Helper;
+using SalesWebMvc.Test.PageObjects;
 
 namespace SalesWebMvc.Test.Testes
 {
     [Collection("Chrome Driver")]
     public class DepartmentTest
     {
-        private IWebDriver driver;
+        private IWebDriver Driver;
+        DepartmentPageObject DepartmentPageObject;
 
         public DepartmentTest(TestFixture fixture)
         {
-            driver = fixture.Driver;
+            Driver = fixture.Driver;
+            DepartmentPageObject = new DepartmentPageObject(Driver);
         }
 
-        [Fact]
-        public void CreateDepartmentValidNameRegister()
+        [Theory]
+        [InlineData("Teste Automátizado", true, "Teste Automátizado")] // Cenário válido
+        [InlineData("", false, "The Nome field is required.")] // Cenário inválido
+        public void CreateDepartment(string departmentName, bool isValid, string expectedResult)
         {
-            driver.Navigate().GoToUrl(TestHelper.BaseUrl + "Departments");
-            var buttonCreatDepartment = driver.FindElement(By.Id("btnCreatDepartment"));
-            buttonCreatDepartment.Click();
+            DepartmentPageObject.NavigateToPageCreateDepartments();
 
-            var inputNameDepartment = driver.FindElement(By.Id("Name"));
-            var btnSaveDepartment = driver.FindElement(By.Id("btnSaveDepartment"));
+            if (!string.IsNullOrEmpty(departmentName))
+            {
+                DepartmentPageObject.SetDepartmentName(departmentName);
+            }
 
-            inputNameDepartment.SendKeys("Teste Automátizado");
-            btnSaveDepartment.Click();
+            DepartmentPageObject.ClickBtnCreateDepartment();
 
-            Assert.Contains("Teste Automátizado", driver.PageSource);
+            if(isValid)
+            {
+                Assert.Contains(expectedResult, Driver.PageSource);
+            }
+            else
+            {
+                Assert.Equal(expectedResult, DepartmentPageObject.GetTextNameError());
+            } 
         }
 
-        [Fact]
-        public void CreateDepartmentInvalidNameNotRegister()
-        {
-            driver.Navigate().GoToUrl(TestHelper.BaseUrl + "Departments");
-            var buttonCreatDepartment = driver.FindElement(By.Id("btnCreatDepartment"));
-            buttonCreatDepartment.Click();
-
-            var btnSaveDepartment = driver.FindElement(By.Id("btnSaveDepartment"));
-            btnSaveDepartment.Click();
-
-            IWebElement spanErrorInputName = driver.FindElement(By.Id("Name-error"));
-
-            Assert.Equal("The Nome field is required.", spanErrorInputName.Text);
-        }
     }
 }
