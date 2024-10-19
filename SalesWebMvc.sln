@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWebMVC", "SalesWebMVC\SalesWebMVC.csproj", "{7028AFAC-3206-4673-96E7-C6B93DE0F5FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesWebMVC", "SalesWebMVC\SalesWebMVC.csproj", "{7028AFAC-3206-4673-96E7-C6B93DE0F5FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A17DCE6-50E5-445F-BAF5-3DFB24ED1BEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{71067544-37B5-4C6C-9C09-F43FEAD19ECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWebMvc.Test", "tests\SalesWebMvc.Test\SalesWebMvc.Test.csproj", "{1E6A60E6-B86E-47B2-8D0D-679CA3A6B557}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{7028AFAC-3206-4673-96E7-C6B93DE0F5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7028AFAC-3206-4673-96E7-C6B93DE0F5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7028AFAC-3206-4673-96E7-C6B93DE0F5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6A60E6-B86E-47B2-8D0D-679CA3A6B557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6A60E6-B86E-47B2-8D0D-679CA3A6B557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6A60E6-B86E-47B2-8D0D-679CA3A6B557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6A60E6-B86E-47B2-8D0D-679CA3A6B557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7028AFAC-3206-4673-96E7-C6B93DE0F5FA} = {4A17DCE6-50E5-445F-BAF5-3DFB24ED1BEB}
+		{1E6A60E6-B86E-47B2-8D0D-679CA3A6B557} = {71067544-37B5-4C6C-9C09-F43FEAD19ECD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50391A32-272A-4DDC-8E04-EFFD2EBC4E34}

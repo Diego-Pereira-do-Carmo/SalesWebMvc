@@ -35,7 +35,7 @@
                 <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
             </div>
             <div class="w-100">
-                <input type="submit" value="Salvar" class="btn btn-success w-25" />
+                <input type="submit" id="Creat_Seller" value="Salvar" class="btn btn-success w-25" />
                 <a asp-action="Index" class="btn btn-secondary w-25">Voltar</a>
             </div>
         </form>

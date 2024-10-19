@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SalesWebMVC.Models.Department>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Departments";
 }
 
-<h1>Index</h1>
+<h1 id="pageTitle">Departments</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-secondary">Criar</a>
+    <a asp-action="Create" id="btnCreatDepartment" class="btn btn-secondary">Criar</a>
 </p>
 <table class="table table-striped table-hover">
     <thead>
@@ -26,9 +26,9 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td class="">
-                    <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-                    <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
-                    <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                    <a id="btnEditDepartment" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a id="btnDetailsDepartment" class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
+                    <a id="btnDeleteDepartment" class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
                 </td>
             </tr>
         }
