@@ -17,8 +17,8 @@ namespace SalesWebMvc.Test.Testes
         }
 
         [Theory]
-        [InlineData("Teste Automátizado", true, "Teste Automátizado")] // Cenário válido
-        [InlineData("", false, "The Nome field is required.")] // Cenário inválido
+        [InlineData("Teste Automátizado", true, "Teste Automátizado")]
+        [InlineData("", false, "The Nome field is required.")]
         public void CreateDepartment(string departmentName, bool isValid, string expectedResult)
         {
             DepartmentPageObject.NavigateToPageCreateDepartments();
